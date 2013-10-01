@@ -3,7 +3,7 @@ EnumBundle
 
 ## Instalação
 
-Adicione o EnumBundle em seu composer.json:
+Adicione o EnumBundle em seu `composer.json`:
 
 ```js
 {
