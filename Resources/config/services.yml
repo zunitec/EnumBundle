@@ -1,0 +1,9 @@
+services:
+    zuni_admin.post_load_enum:
+        class: Zuni\EnumBundle\EventListener\EnumListener
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+    zuni_enum.type.enum:
+        class: Zuni\EnumBundle\Form\Type\EnumType
+        tags:
+            - { name: form.type, alias: enum }            

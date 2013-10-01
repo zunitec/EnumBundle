@@ -1,0 +1,38 @@
+{
+    "name": "zuni/enum-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "description": "Bundle Enumeration",
+    "keywords": ["enum","enumeration"],
+    "homepage": "https://github.com/zunitec/EnumBundle.git",
+    "authors": [
+        {
+            "name": "Zunitec Tecnologias",
+            "email": "zunitec@zunitec.com.br",
+            "homepage": "http://zunitec.com.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.3.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.2.*"
+    },
+    "require-dev": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.3.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.2.*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "Zuni\\EnumBundle": "" }
+    },
+    "target-dir": "Zuni/EnumBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
