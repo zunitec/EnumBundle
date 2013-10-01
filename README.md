@@ -1,14 +1,28 @@
 EnumBundle
 ==========
+
+## Instalação
+
+Adicione o EnumBundle em seu composer.json:
+
+```js
+{
+    "require": {
+        "zuni/enum-bundle": "1.0.*@dev"
+    }
+}
+```
+
 Para configurar adicione um type no doctrine.
 Vá em config (Arquivos importantes):
 
+``` yaml
 doctrine:
     dbal:
         ...
         types:
             enum: Zuni\EnumBundle\DBAL\Types\EnumType
-
+```
 
 Criar a classe da enum:
 
