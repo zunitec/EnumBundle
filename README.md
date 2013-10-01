@@ -66,24 +66,28 @@ class TipoEndereco extends AbstractEnumObject{}
 ```
 No form type, passar a enumList no options. Ele vai mostrar a listagem padrão:
 
+``` php
     $builder
           ->add('tipoEndereco', 'enum', array(
                 "label" => 'endereco.tipoEndereco',
                 "enumList" => TipoEnderecoEnum::getInstance()
             ));
-            
+```
             
 Caso queria passar uma listagem diferente, use o choices:
 
+``` php
     $builder
           ->add('tipoEndereco', 'enum', array(
                 "label" => 'endereco.tipoEndereco',
                 "enumList" => TipoEnderecoEnum::getInstance(),
               "choices" => \Zuni\PessoaBundle\Enum\RegimeTributarioEnum::getInstance()->getLista(),
             ));
+```
             
 Ao declarar a classe, use as anotações da enum, faça da seguinte forma:
 
+``` php
 use Zuni\EnumBundle\Annotation;
 
     /**
@@ -91,19 +95,23 @@ use Zuni\EnumBundle\Annotation;
      *
      * @Annotation\HasEnum
      */
-    class Endereco
+    class Endereco{}
+```
 
 Ao declarar o atributo da enum na classe, faça da seguinte forma:
 
+``` php
     /**
      * @var \Zuni\PessoaBundle\Enum\TipoEndereco
      * 
      * @Annotation\Enum(enumList="\Zuni\PessoaBundle\Enum\TipoEnderecoEnum")
      */
     private $tipoEndereco;
+```
     
 Acrescentar no form_widget:
 
+``` twig
 {% block enum_widget %}
 {% spaceless %}
     {% if expanded %}
@@ -158,4 +166,5 @@ Acrescentar no form_widget:
 {% endspaceless %}
 {% endblock enum_widget_options %}
 
+```
 Após isso tudo, deverá funcionar.
