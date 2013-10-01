@@ -12,6 +12,7 @@ doctrine:
 
 Criar a classe da enum:
 
+``` php
 namespace Zuni\PessoaBundle\Enum;
 
 use Zuni\EnumBundle\Model\AbstractEnumList;
@@ -62,7 +63,7 @@ class TipoEnderecoEnum extends AbstractEnumList
 }
 
 class TipoEndereco extends AbstractEnumObject{}
-
+```
 No form type, passar a enumList no options. Ele vai mostrar a listagem padrão:
 
     $builder
