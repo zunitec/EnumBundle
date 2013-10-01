@@ -125,7 +125,7 @@ Ao declarar o atributo da enum na classe, faça da seguinte forma:
     
 Acrescentar no form_widget:
 
-``` html
+``` twig
 {% block enum_widget %}
 {% spaceless %}
     {% if expanded %}
