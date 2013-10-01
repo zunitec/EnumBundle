@@ -57,9 +57,9 @@ class TipoEnderecoEnum extends AbstractEnumList
 
     function __construct()
     {
-        $this->PRINCIPAL = new TipoEndereco("P", "Principal");
-        $this->ENTREGA = new TipoEndereco("E", "Entrega");
-        $this->COBRANCA = new TipoEndereco("C", "Cobrança");
+        $this->PRINCIPAL = new TipoEndereco("P", "tipoenderecoenum.principal");
+        $this->ENTREGA = new TipoEndereco("E", "tipoenderecoenum.entrega");
+        $this->COBRANCA = new TipoEndereco("C", "tipoenderecoenum.cobraca");
     }
 
     /**
@@ -78,6 +78,13 @@ class TipoEnderecoEnum extends AbstractEnumList
 
 class TipoEndereco extends AbstractEnumObject{}
 ```
+
+**Nota:**
+
+> Os itens da TipoEnderecoEnum, estão com a descrição nesse formato (Ex: tipoenderecoenum.principal), 
+> para serem traduzidas.
+> Caso não seja necessário, coloque a descrição que deseja para o form.
+
 No form type, passar a enumList no options. Ele vai mostrar a listagem padrão:
 
 ``` php
@@ -123,7 +130,7 @@ Ao declarar o atributo da enum na classe, faça da seguinte forma:
     private $tipoEndereco;
 ```
     
-Acrescentar no form_widget:
+Acrescentar no form_widget. Ele já está preparado para a tradução:
 
 ``` twig
 {% block enum_widget %}
