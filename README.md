@@ -13,6 +13,12 @@ Adicione o EnumBundle em seu `composer.json`:
 }
 ```
 
+Registre seu bundle no AppKernel:
+
+``` php
+new Zuni\EnumBundle\ZuniEnumBundle(),
+```
+
 Para configurar adicione um type no doctrine.
 Vá em config (Arquivos importantes):
 
