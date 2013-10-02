@@ -126,6 +126,7 @@ Ao declarar o atributo da enum na classe, faça da seguinte forma:
      * @var \Zuni\PessoaBundle\Enum\TipoEndereco
      * 
      * @Annotation\Enum(enumList="\Zuni\PessoaBundle\Enum\TipoEnderecoEnum")
+     * @ORM\Column(name="tipo_endereco", type="enum", length=1, nullable=true)
      */
     private $tipoEndereco;
 ```
