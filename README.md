@@ -13,7 +13,7 @@ Adicione o EnumBundle em seu `composer.json`:
 }
 ```
 
-Registre seu bundle no AppKernel:
+Registre o bundle no AppKernel:
 
 ``` php
 new Zuni\EnumBundle\ZuniEnumBundle(),
