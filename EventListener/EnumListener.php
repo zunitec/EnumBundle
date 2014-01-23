@@ -7,20 +7,22 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use ReflectionClass;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
-class EnumListener {
+class EnumListener
+{
 
     /**
      * Carregar a enum ao buscar objeto do banco
      * 
      * @param LifecycleEventArgs $args
      */
-    public function postLoad(LifecycleEventArgs $args) {
+    public function postLoad(LifecycleEventArgs $args)
+    {
 
         $entity = $args->getEntity();
         $reader = new AnnotationReader();
         $reflection = new ReflectionClass($entity);
 
-        if ($this->hasEnumAnnotation($reader, $reflection)) {
+        if ($this->hasEnumAnnotation($reader, $reflection, $entity)) {
             /* @var $reflectionProperty ReflectionProperty */
             foreach ($args->getEntityManager()->getClassMetadata($reflection->getName())->getReflectionProperties() as $reflectionProperty) {
                 $classAnnotation = $reader->getPropertyAnnotation($reflectionProperty, 'Zuni\EnumBundle\Annotation\Enum');
@@ -42,9 +44,23 @@ class EnumListener {
      * @param ReflectionClass $reflection
      * @return boolean
      */
-    private function hasEnumAnnotation($reader, $reflection) {
+    private function hasEnumAnnotation($reader, $reflection, $entity)
+    {
+
         $classAnnotation = $reader->getClassAnnotation($reflection, 'Zuni\EnumBundle\Annotation\HasEnum');
-        return $classAnnotation && $classAnnotation->has;
+        $possuiAnotacao = $classAnnotation && $classAnnotation->has;
+
+        //POG pois algumas classes chegam aqui como filhas de *proxy*
+        if (!$possuiAnotacao) {
+            $pai = get_parent_class($entity);
+            if ($pai) {
+                $reflection = new ReflectionClass($pai);
+                $classAnnotation = $reader->getClassAnnotation($reflection, 'Zuni\EnumBundle\Annotation\HasEnum');
+                $possuiAnotacao = $classAnnotation && $classAnnotation->has;
+            }
+        }
+
+        return $possuiAnotacao;
     }
 
 }
